@@ -47,12 +47,15 @@ void cat_and_advise(float celsius) {
 }
 
 /* Main Function
-
+- Declares local variables for user input
+- Error handles user input
+- Passes user inputed values to conversion and categorization functions
+- Returns converted information back to user
 */
 
 int main(){
 
-	// Initialize local variables
+	// Declare local variables
 	float input_temp;
 	float converted_temp;
 	float temp_in_c;
@@ -68,23 +71,23 @@ int main(){
 		return 1;
 	}
 
-	// ***PLACE HOLD***
+	// Obtain original temperature scale from user and capitolize
 	printf("Enter the original scale (C, F, or K): ");
 	scanf(" %c", &og_scale);
 	og_scale = toupper(og_scale);
 
-	// ***PLACE HOLD***
+	// Obtain target temperature scale from user and capitolize
 	printf("Enter the scale to convert to (C, F, or K): ");
 	scanf(" %c", &target_scale);
 	target_scale = toupper(target_scale);
 
-	// ***PLACE HOLD***
+	// If user inputed original scale is in Kelvin, verify that it is a positive number, otherwise input is invalid
 	if (og_scale == 'K' && input_temp < 0) {
 		printf("Invalid input: Kelvin cannot be less than 0.\n");
 		return 1;
 	}
 
-	// ***PLACE HOLD***
+	// Convert user inputed temperature to Celsius in order to pass into cat_and_advise function
 	if (og_scale == 'C') {
 		temp_in_c = input_temp;
 	} else if (og_scale == 'F') {
@@ -97,7 +100,7 @@ int main(){
 		return 1;
 	}
 
-	// ***PLACE HOLD***
+	// Convert user inputed temperature from original scale to user inputed target scale
 	if (target_scale == 'C') {
 		converted_temp = temp_in_c;
 	} else if (target_scale == 'F') {
@@ -110,17 +113,12 @@ int main(){
 		return 1;
 	}
 
-	// ***PLACE HOLD***
+	// Returns the converted tempurature and scale back to user as well as returning the output of cat_and_advise function
 	printf("\nConverted tempurature: %.2f %c\n", converted_temp, target_scale);
 	cat_and_advise(temp_in_c);
 
 	return 0;
 }
-
-
-
-
-
 
 
 
